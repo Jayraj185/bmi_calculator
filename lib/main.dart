@@ -1,5 +1,4 @@
 import 'package:bmi_calculator/screens/HomeScreen/provider/HomeProvider.dart';
-import 'package:bmi_calculator/screens/ResultScreen/view/ResultPage.dart';
 import 'package:bmi_calculator/screens/HomeScreen/view/HomePage.dart';
 import 'package:bmi_calculator/utils/SplashPage.dart';
 import 'package:flutter/cupertino.dart';
