@@ -7,7 +7,7 @@ class HomeProvider extends ChangeNotifier
 {
   bool vis = false;
   bool vis2 = false;
-  double height = 50;
+  int height = 50;
   double cm = 0;
   int weight = 0;
   int age = 0;
@@ -27,7 +27,7 @@ class HomeProvider extends ChangeNotifier
   }
   void ChangeHeight(value)
   {
-    height = double.parse((value).toStringAsFixed(0));
+    height = value;
     notifyListeners();
   }
   void MinWeight()

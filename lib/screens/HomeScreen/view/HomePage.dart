@@ -52,20 +52,20 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
                     child: IconButton(
                       icon: Icon(Icons.refresh,color: Colors.white,),
                       onPressed: (){
-                        if(ProviderTrue!.weight != 0)
-                          {
-                            ProviderFalse!.Refresh();
-                          }
-                        else{
-                          animationController2!.forward();
-                          Timer(Duration(seconds: 1), () {
-                            if(animationController2!.isAnimating)
+                          if(ProviderTrue!.weight != 0 && ProviderTrue!.age != 0 && (ProviderTrue!.vis || ProviderTrue!.vis2))
                             {
-                              animationController2!.reset();
+                            ProviderFalse!.Refresh();
                             }
-                          });
-
-                        }
+                          else
+                            {
+                            animationController2!.forward();
+                              Timer(Duration(seconds: 1), () {
+                                if(animationController2!.isAnimating)
+                                  {
+                                    animationController2!.reset();
+                                  }
+                                });
+                            }
                       },
                     ),
                   )
@@ -170,17 +170,20 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
                                 RichText(
                                     text: TextSpan(
                                         children: [
-                                          TextSpan(text: "${ProviderTrue!.height}",style: TextStyle(fontSize: 46,color: Colors.white,fontWeight: FontWeight.bold)),
+                                          TextSpan(text: "${ProviderTrue!.height} ",style: TextStyle(fontSize: 46,color: Colors.white,fontWeight: FontWeight.bold)),
                                           TextSpan(text: "cm", style: TextStyle(color: Colors.white,fontSize: 30),),
                                         ]
                                     )
                                 ),
-                                Slider(value: ProviderTrue!.height, onChanged: (double value){
-                                  ProviderTrue!.ChangeHeight(value);
+                                Slider(value: ProviderTrue!.height.toDouble(),
+                                  onChanged: (double value){
+                                  ProviderFalse!.ChangeHeight(value.round());
                                 },
                                   min: 50,
                                   max: 300,divisions: 300,
+                                  label: "${ProviderTrue!.height}",
                                   activeColor: Colors.pink,
+
                                 )
                               ],
                             ),
