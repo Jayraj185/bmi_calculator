@@ -52,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> with TickerProviderStateMixin{
                     child: IconButton(
                       icon: Icon(Icons.refresh,color: Colors.white,),
                       onPressed: (){
-                          if(ProviderTrue!.weight != 0 && ProviderTrue!.age != 0 && (ProviderTrue!.vis || ProviderTrue!.vis2))
+                          if(ProviderTrue!.weight != 0 || ProviderTrue!.age != 0 || (ProviderTrue!.vis || ProviderTrue!.vis2))
                             {
                             ProviderFalse!.Refresh();
                             }
